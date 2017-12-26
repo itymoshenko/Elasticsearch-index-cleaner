@@ -11,11 +11,11 @@ import logging
 
 __author__ = 'itymoshenko'
 
-# Test environment
-# es = elasticsearch.Elasticsearch([{'host': '10.1.15.47', 'port': 9200}])
+# Test environment (you need to specify the correct IP of ES cluster)
+# es = elasticsearch.Elasticsearch([{'host': 'X.X.X.X', 'port': 9200}])
 
-# Prod environment
-es = elasticsearch.Elasticsearch([{'host': '10.1.14.55', 'port': 9200}])
+# Prod environment (you need to specify the correct IP of ES cluster)
+es = elasticsearch.Elasticsearch([{'host': 'X.X.X.X', 'port': 9200}])
 
 # Logging settings
 # log_file = "es_index_cleaner.log"
@@ -63,7 +63,6 @@ def delete_index(arg):
     """
     index_name = "{0}".format(arg)
     es.indices.delete(index_name)
-    # es.indices.delete(index='test-index', ignore=[400, 404])
     logger.info("Index was deleted successfully")
 
 count = 0
